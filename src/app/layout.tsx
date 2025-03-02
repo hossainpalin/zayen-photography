@@ -1,9 +1,13 @@
+import Sidebar from "@/components/common/sidebar";
 import type { Metadata } from "next";
 import { Playfair } from "next/font/google";
 import { ReactNode } from "react";
 import "./globals.css";
 
-const playFair = Playfair({ subsets: ["latin"] });
+const playFair = Playfair({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"]
+});
 
 export const metadata: Metadata = {
   title: {
@@ -20,7 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={playFair.className}>{children}</body>
+      <body className={playFair.className}>
+        <Sidebar>{children}</Sidebar>
+      </body>
     </html>
   );
 }
