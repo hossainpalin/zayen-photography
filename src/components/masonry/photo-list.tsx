@@ -86,7 +86,7 @@ export default function PhotoList() {
         768: 2,
         480: 1
       }}
-      className="masonry pl-4 lg:pt-4"
+      className="masonry px-4 lg:pt-4"
       columnClassName="masonry-column"
     >
       {images.map((image) => (

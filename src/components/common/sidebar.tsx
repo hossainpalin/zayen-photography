@@ -11,7 +11,7 @@ export default function Sidebar({
     <main className="flex size-full flex-col lg:flex-row">
       <Header />
 
-      <aside className="sticky top-0 hidden w-full flex-col items-center justify-between bg-white p-8 lg:flex lg:max-w-[250px] xl:max-w-[320px]">
+      <aside className="sticky top-0 z-20 hidden w-full flex-col items-center justify-between bg-white p-8 lg:flex lg:max-w-[250px] xl:max-w-[320px]">
         <div>
           <Link
             href="/"
@@ -30,7 +30,7 @@ export default function Sidebar({
       </aside>
 
       <section className="flex size-full flex-col items-center justify-between overflow-y-auto bg-slate-50">
-        <div className="w-full">{children}</div>
+        {children}
         <Footer className="pb-2 pt-4 lg:hidden" />
       </section>
     </main>

@@ -31,7 +31,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.2 }}
             exit={{ opacity: 0 }}
-            className="fixed left-0 top-0 z-10 flex size-full flex-col items-center justify-center bg-white p-4"
+            className="fixed left-0 top-0 z-50 flex size-full flex-col items-center justify-center bg-white p-4"
           >
             <button
               className="absolute right-4 top-4 text-gray-600 hover:text-gray-800"
