@@ -7,3 +7,19 @@ html,
 body {
   height: 100%;
 }
+
+:root {
+  --grows: [25vh, 15vh];
+}
+
+.masonry {
+  display: flex;
+  margin-left: -16px;
+  width: auto;
+  padding: 1rem;
+}
+
+.masonry-column {
+  padding-left: 16px;
+  background-clip: padding-box;
+}

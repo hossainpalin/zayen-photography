@@ -1,3 +1,9 @@
+import PhotoLayout from "@/components/masonry/photo-layout";
+
 export default function Page() {
-  return <div className="text-2xl">This is home page</div>;
+  return (
+    <div className="size-full">
+      <PhotoLayout />
+    </div>
+  );
 }

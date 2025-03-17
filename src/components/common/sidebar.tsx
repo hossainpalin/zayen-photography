@@ -10,7 +10,7 @@ export default function Sidebar({
     <main className="flex size-full flex-col lg:flex-row">
       <Header />
 
-      <aside className="hidden w-full max-w-xs flex-col items-center justify-between bg-white p-8 lg:flex">
+      <aside className="sticky top-0 hidden w-full flex-col items-center justify-between bg-white p-8 lg:flex lg:max-w-[250px] xl:max-w-[320px]">
         <div>
           <h1 className="text-center text-3xl text-black/90">
             Zayen <br /> Photography
@@ -24,7 +24,9 @@ export default function Sidebar({
         <SidebarFooter />
       </aside>
 
-      <section className="size-full bg-slate-50">{children}</section>
+      <section className="size-full overflow-y-auto bg-slate-50">
+        {children}
+      </section>
     </main>
   );
 }

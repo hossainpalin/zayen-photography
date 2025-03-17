@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Playfair } from "next/font/google";
 import { ReactNode } from "react";
 import "./globals.css";
+import QueryProvider from "@/providers/query-provider";
 
 const playFair = Playfair({
   subsets: ["latin"],
@@ -25,7 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={playFair.className}>
-        <Sidebar>{children}</Sidebar>
+        <QueryProvider>
+          <Sidebar>{children}</Sidebar>
+        </QueryProvider>
       </body>
     </html>
   );
