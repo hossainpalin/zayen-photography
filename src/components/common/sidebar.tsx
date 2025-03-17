@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
-import Menu from "../menu";
-import SidebarFooter from "../sidebar-footer";
+import MenuList from "../menu-list";
 import Header from "./header";
+import Link from "next/link";
+import Footer from "../footer";
 
 export default function Sidebar({
   children
@@ -12,20 +13,25 @@ export default function Sidebar({
 
       <aside className="sticky top-0 hidden w-full flex-col items-center justify-between bg-white p-8 lg:flex lg:max-w-[250px] xl:max-w-[320px]">
         <div>
-          <h1 className="text-center text-3xl text-black/90">
-            Zayen <br /> Photography
-          </h1>
+          <Link
+            href="/"
+            className="flex flex-col items-center text-3xl text-black/90"
+          >
+            <span>Zayen</span>
+            <span>Photography</span>
+          </Link>
 
           <nav className="mt-20 flex flex-col items-center">
-            <Menu />
+            <MenuList className="text-xl" />
           </nav>
         </div>
 
-        <SidebarFooter />
+        <Footer />
       </aside>
 
-      <section className="size-full overflow-y-auto bg-slate-50">
-        {children}
+      <section className="flex size-full flex-col items-center justify-between overflow-y-auto bg-slate-50">
+        <div className="w-full">{children}</div>
+        <Footer className="pb-2 pt-4 lg:hidden" />
       </section>
     </main>
   );

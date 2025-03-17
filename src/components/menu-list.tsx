@@ -5,7 +5,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 
-export default function Menu() {
+interface IMenuProps {
+  className?: string;
+  onClose?: () => void;
+}
+
+export default function MenuList({ className, onClose }: IMenuProps) {
   const pathname = usePathname();
 
   const menuItems = useMemo(
@@ -27,9 +32,10 @@ export default function Menu() {
     <ul className="flex flex-col items-center space-y-4">
       {menuItems.map((item) => (
         <li
+          onClick={() => onClose?.()}
           key={item.title}
           className={cn(
-            "text-xl font-light text-black/75 hover:text-black",
+            `font-light text-black/75 hover:text-black ${className}`,
             item.isActive && "text-black"
           )}
         >

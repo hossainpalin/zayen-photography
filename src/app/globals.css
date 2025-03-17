@@ -16,7 +16,6 @@ body {
   display: flex;
   margin-left: -16px;
   width: auto;
-  padding: 1rem;
 }
 
 .masonry-column {

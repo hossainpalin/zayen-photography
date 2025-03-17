@@ -1,9 +1,5 @@
-import PhotoLayout from "@/components/masonry/photo-layout";
+import PhotoList from "@/components/masonry/photo-list";
 
 export default function Page() {
-  return (
-    <div className="size-full">
-      <PhotoLayout />
-    </div>
-  );
+  return <PhotoList />;
 }

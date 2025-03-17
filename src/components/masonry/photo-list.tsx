@@ -1,15 +1,15 @@
 "use client";
 
-import Photo from "@/components/masonry/photo";
 import { useInView } from "react-intersection-observer";
 
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
-import Masonry from "react-masonry-css";
+import MasonryLayout from "@/components/masonry/masonry-layout";
+import Photo from "@/components/masonry/photo";
 
 const LIMIT = 20;
 
-export default function PhotoLayout() {
+export default function PhotoList() {
   const { ref, inView } = useInView();
 
   const { data, isLoading, isError, error, fetchNextPage } = useInfiniteQuery({
@@ -31,14 +31,6 @@ export default function PhotoLayout() {
     staleTime: 1000 * 60 * 60 // 1 hour
   });
 
-  const breakpointColumns = {
-    default: 5,
-    1536: 4,
-    1024: 3,
-    768: 2,
-    480: 1
-  };
-
   const skeleton = Array.from({ length: LIMIT });
 
   useEffect(() => {
@@ -49,9 +41,15 @@ export default function PhotoLayout() {
 
   if (isLoading && !isError) {
     return (
-      <Masonry
-        breakpointCols={breakpointColumns}
-        className="masonry"
+      <MasonryLayout
+        breakpointCols={{
+          default: 5,
+          1536: 4,
+          1024: 3,
+          768: 2,
+          480: 1
+        }}
+        className="masonry pl-4 lg:pt-4"
         columnClassName="masonry-column"
       >
         {skeleton.map((_, index) => {
@@ -61,11 +59,11 @@ export default function PhotoLayout() {
             <div
               key={index}
               className="mb-4 w-full animate-pulse rounded-[10px] bg-gray-300"
-              style={{ height }}
+              style={{ height: `${height}px` }}
             />
           );
         })}
-      </Masonry>
+      </MasonryLayout>
     );
   }
 
@@ -80,9 +78,15 @@ export default function PhotoLayout() {
   const images = data?.pages.flatMap((page) => page) || [];
 
   return (
-    <Masonry
-      breakpointCols={breakpointColumns}
-      className="masonry"
+    <MasonryLayout
+      breakpointCols={{
+        default: 5,
+        1536: 4,
+        1024: 3,
+        768: 2,
+        480: 1
+      }}
+      className="masonry pl-4 lg:pt-4"
       columnClassName="masonry-column"
     >
       {images.map((image) => (
@@ -90,6 +94,6 @@ export default function PhotoLayout() {
       ))}
 
       <div ref={ref} />
-    </Masonry>
+    </MasonryLayout>
   );
 }
